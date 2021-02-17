@@ -1,7 +1,8 @@
 package com.kiran.ds.arrays;
 
 public class Frequency{
-    public static void frequencycount(int arr[], int n)
+
+    public static void frequencyCount(int arr[], int n)
     {
         // code here
         for(int i=0; i<n; i++) {
@@ -16,6 +17,6 @@ public class Frequency{
     }
 
     public static void main(String[] args) {
-        frequencycount(new int[]{2,3,2,3,5}, 5);
+        frequencyCount(new int[]{2,3,2,3,5}, 5);
     }
 }

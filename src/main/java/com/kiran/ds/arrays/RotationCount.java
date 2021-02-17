@@ -25,7 +25,6 @@ package com.kiran.ds.arrays;
 public class RotationCount {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         int[] a = {15, 18, 2, 3, 6, 12};
         System.out.println(rotationCount(a, 0, a.length - 1));
     }
@@ -40,5 +39,4 @@ public class RotationCount {
         if (a[mid] < a[hi]) return rotationCount(a, lo, mid -1);
         return rotationCount(a, mid + 1, hi);
     }
-
 }
