@@ -1,5 +1,6 @@
 package com.kiran.ds.arrays;
 
+// Macquarie
 public class FindPairForSum {
 
     public static void main(String[] args) {
