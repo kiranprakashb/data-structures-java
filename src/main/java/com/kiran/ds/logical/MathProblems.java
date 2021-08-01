@@ -20,6 +20,16 @@ public class MathProblems {
         }
     }
 
+    private static int countFibonacciByRecursion(int num) {
+        if(num == 0) {
+            return 0;
+        }
+        if(num == 1) {
+            return 1;
+        }
+        return countFibonacciByRecursion(num-1) + countFibonacciByRecursion(num-2);
+    }
+
     private void printFibonacciByValue(int value) {
         int prev = 0;
         int current = 1;
@@ -72,9 +82,36 @@ public class MathProblems {
         return factorial;
     }
 
+    private static int lcm(int n1, int n2) {
+        int max = n1>n2 ? n1 : n2;
+        while(true) {
+            if(max%n1 == 0 && max%n2 == 0) {
+                return max;
+            } else {
+                max++;
+            }
+        }
+    }
+
+    private static void findNumberInMatrix(int m[][], int x) {
+        int i=0; int j=m.length-1;
+        while(i<m.length && j>0) {
+            if(m[i][j] == x) {
+                System.out.println(x + " found at: (" + i + "," + j + ")");
+                return;
+            } else if(m[i][j] > x) {
+                j--;
+            } else {
+                i++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        int num = 4;
-        int factorial = new MathProblems().getFactorialByRecursion(num);
-        System.out.println(factorial);
+        int[][] m = {{10,20,30,40},
+                {15,25,35,45},
+                {17,29,37,48},
+                {32,33,39,50}};
+        findNumberInMatrix(m, 29);
     }
 }

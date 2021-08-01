@@ -21,7 +21,7 @@ public class Palindrome {
             System.out.println(firstHalf);
             System.out.println(secondHalf);
         } else {
-            // in case the lenght of the string is odd we should ignore the middle character
+            // in case the length of the string is odd we should ignore the middle character
             // first half is a substring from start to the left of the middle character
             firstHalf = value.substring(0, (length-1)/2);
             // second half is a substring from the right of the middle character to the end
