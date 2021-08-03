@@ -3,9 +3,12 @@ package com.kiran.ds.hackerrank;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+ */
 public class ArrayManipulation {
 
-    public static long arrayManipulation(int n, List<List<Integer>> queries) {
+    static long arrayManipulation(int n, List<List<Integer>> queries) {
         long[] arr = new long[n];
         // Not adding the number to all the elements.  Instead adding it to the first index and -ve number to lastIndex+1.
         for(List<Integer> query : queries) {
@@ -17,7 +20,7 @@ public class ArrayManipulation {
         // Now add all elements in the array keeping a tab on the max sum reached.
         for(long ele : arr) {
             sum += ele;
-            max = sum > max ? sum : max;
+            max = Math.max(sum, max);
         }
         return max;
     }
