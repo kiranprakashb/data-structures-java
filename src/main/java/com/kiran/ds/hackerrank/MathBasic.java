@@ -78,10 +78,76 @@ public class MathBasic {
         System.out.println(zero);
     }
 
+    /**
+     * https://www.hackerrank.com/challenges/mini-max-sum/problem
+     */
+    static void miniMaxSum(List<Integer> arr) {
+        long min = Long.MAX_VALUE;
+        long max = Long.MIN_VALUE;
+        for(int i=0; i<arr.size(); i++) {
+            long sum = 0L;
+            for(int j=0; j<arr.size(); j++) {
+                if(i != j) {
+                    sum = sum + arr.get(j);
+                }
+            }
+            min = Math.min(min, sum);
+            max = Math.max(max, sum);
+        }
+        System.out.println(min + " " + max);
+    }
+
+    /**
+     * https://www.hackerrank.com/challenges/birthday-cake-candles/problem
+     */
+    static int birthdayCakeCandles(List<Integer> candles) {
+        int max = 0;
+        int maxCount = 0;
+        for (Integer candle : candles) {
+            if (max == candle) {
+                maxCount++;
+            } else if (max < candle) {
+                max = candle;
+                maxCount = 1;
+            }
+        }
+        return maxCount;
+    }
+
+    /**
+     * https://www.hackerrank.com/challenges/time-conversion/problem
+     */
+    static String timeConversion(String s) {
+        String ampm = s.substring(s.length()-2);
+        String time = s.substring(0, s.length()-2);
+        String[] split = time.split(":");
+        int hour = Integer.parseInt(split[0]);
+        if(ampm.equals("AM") && hour == 12) {
+            split[0] = "00";
+        } else if(ampm.equals("PM") && hour != 12) {
+            hour = (hour + 12) % 24;
+            split[0] = String.valueOf(hour);
+        }
+        return String.format("%s:%s:%s", split);
+    }
+
     public static void main(String[] args) {
+
+        List<Integer> scores = compareTriplets(Arrays.asList(17, 28, 30), Arrays.asList(99, 16, 8));
+        scores.forEach(score -> System.out.print(score + " "));
+        System.out.println();
+
         List<List<Integer>> arr = Arrays.asList(Arrays.asList(11, 2, 4), Arrays.asList(4, 5, 6), Arrays.asList(10, 8, -12));
         int diff = diagonalDifference(arr);
         System.out.println(diff);
+
         plusMinus(Arrays.asList(-4, 3, -9, 0, 4, 1));
+
+        miniMaxSum(Arrays.asList(1,2,3,4,5));
+
+        System.out.println(birthdayCakeCandles(Arrays.asList(3,2,1,3)));
+
+        String ampm = "07:05:45PM";
+        System.out.println(timeConversion(ampm));
     }
 }
